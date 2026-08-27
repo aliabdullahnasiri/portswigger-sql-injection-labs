@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from threading import Event
 from typing import Dict, Self, Union
 
+import click
 import requests as r
 import urllib3
 from rich.console import Console
@@ -269,10 +270,14 @@ class Attack:
                 live.update(self.render_password())
 
 
-def main() -> None:
-    attack = Attack(
-        "https://0af400f804116c5f806a088000c6001d.web-security-academy.net/filter?category=Accessories"
-    )
+@click.command()
+@click.option(
+    "--lab-url",
+    required=True,
+    help="Target PortSwigger lab URL",
+)
+def main(lab_url: str) -> None:
+    attack = Attack(lab_url)
 
     attack.start()
 
