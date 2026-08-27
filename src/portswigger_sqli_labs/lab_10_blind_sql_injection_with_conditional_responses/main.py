@@ -86,6 +86,7 @@ class Attack:
 
         self.passwd_dct = {}
         self.trying = {}
+        self.cookies = {}
 
         logger.info("Sending initial request")
 
@@ -99,7 +100,8 @@ class Attack:
 
         except r.RequestException:
             logger.exception("Initial request failed")
-            return
+
+            exit(1)
 
         logger.info(
             "Initial request successful: HTTP %d",
@@ -114,9 +116,6 @@ class Attack:
             return
 
         logger.info("Required session cookies retrieved")
-
-        if not hasattr(self, "cookies"):
-            self.cookies = {}
 
         self.cookies.setdefault("TrackingId", tracking_id)
         self.cookies.setdefault("session", session)
