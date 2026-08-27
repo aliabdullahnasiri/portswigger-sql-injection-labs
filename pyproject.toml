@@ -1,0 +1,14 @@
+[project]
+name = "portswigger-sqli-labs"
+version = "0.1.0"
+description = "A Python-based collection of solutions and notes for PortSwigger SQL injection labs."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+portswigger-sqli-labs = "portswigger_sqli_labs:main"
+
+[build-system]
+requires = ["uv_build>=0.12.6,<0.13.0"]
+build-backend = "uv_build"
